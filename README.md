@@ -1,4 +1,8 @@
-### Parcel
+### Webpack
+
+Deploy: 
+* npm run build
+
 
 
 
