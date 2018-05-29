@@ -1,7 +1,7 @@
 <template>
 	<div>
-    <header>
-        <h1>{{ title }}</h1>
+    <header class="white--text">
+        <h1 class="text-md-center text-xs-center">{{ title }}</h1>
     </header>
 		</div>
 </template>
@@ -15,10 +15,4 @@ export default {
   }
 };
 </script>
-
-<style lang="css" scoped>
-  h1 {
-    text-align: center;
-  }
-</style>
 

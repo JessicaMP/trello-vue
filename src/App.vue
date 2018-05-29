@@ -1,8 +1,12 @@
 <template>
-    <div>
-      <ComponentHeader/>
-			<ComponentMain/>  
-    </div>
+    <v-app class="pink">
+      <v-content>
+        <v-container fluid>
+          <ComponentHeader/>
+          <ComponentMain/> 
+        </v-container>
+      </v-content> 
+    </v-app>
 </template>
 
 <script>
@@ -16,5 +20,11 @@ export default {
 	}
 };
 </script>
+
+<style>
+/* body {
+  font-family: "Roboto", sans-serif; */
+/* } */
+</style>
 
 

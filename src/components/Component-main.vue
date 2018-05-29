@@ -1,16 +1,16 @@
 <template>
   <div>
     <div class="addList">
-      <a href="#" type="button" v-on:click="ok = !ok">Añadir una tarjeta</a>
+      <v-btn color="pink lighten-4" @click="ok = !ok">Añadir una</v-btn>
       <div class='addCard' v-show="ok">
         <input type="text" @keyup.enter="addBox" v-model.trim="val" placeholder="Añadir una tarjeta">
         <div class="box-buttons">
-          <button>Guardar</button>
-          <button>Close</button>  
+          <button @click="addBox">Guardar</button>
+          <button @click="ok = !ok">Close</button>  
         </div>
       </div>
     </div>
-      <ComponentCard v-for="(card, index) in cards" :key="index" :card="card"/>
+      <ComponentCard v-for="(card, index) in cards" :key="index" :card="card" @remove="remove(index)"/>
   </div>
 </template>
 
@@ -26,10 +26,8 @@ export default {
       props: {
         cards: { default: [] }
       },
-      name: "example",
-			cards: [{ name: "Card", val: null }],
+      cards: [],
       val: "",
-      newList: [{ name: "" }],
       ok: false
     }
   },
@@ -38,10 +36,8 @@ export default {
       if (this.val.length > 0) {
         this.cards.push({
           name: this.val,
-          // tarjet: null
         });
         this.val = "";
-        console.log("card");
       }
     },
     addTarjet() {
@@ -53,14 +49,10 @@ export default {
         console.log("list");
       } 
     },
-    toggle() {
-      // if(this.exp === 'true') {
-        
-      // } else {
-        
-      // }
-      return this.exp = !this.exp;
-    }
+    remove(index) {
+      this.cards.splice(index, 1);
+      console.log('remove');
+    },
   }
 };
 </script>
@@ -77,17 +69,46 @@ export default {
 .addList a {
    text-decoration: none;
    color: white;
-   background-color: blue;
+   background-color: rgb(0,106,168);
    padding: 0.5rem;
+   border-radius: 0.5rem;
 }
 
 .addCard {
   padding: 0.5rem;
   border: 1px solid gray;
+  border-radius: 0.5rem;
+  background-color: rgb(226,228,230);
+}
+
+.addCard input {
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+  border: 1px solid gray;
+  box-shadow: 2px 2px gray;
+  background-color: rgb(226,228,230);
+}
+
+input::placehoder {
+  color: white;
 }
 
 .box-buttons {
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 0;
+}
+
+.box-buttons button {
+  border-radius: 0.3rem;
+  padding: 0.2rem;
+  color: white;
+}
+
+button:first-child {
+  background-color: rgb(90,172,68);
+}
+
+button:nth-child(2) {
+  background-color: black;
 }
 
 ul {
@@ -106,8 +127,5 @@ ul {
   width: 80%;
 }
 
-/* .addCard {
-  display: none!important;
-} */
 </style>
 

@@ -19,3 +19,9 @@ export default {
   }
 }
 </script>
+<style lang="css" scoped>
+input {
+  width: 90%;
+  padding: 0 0.5rem;
+}
+</style>
