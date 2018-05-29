@@ -18,6 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "vue": "2.5.16",
+    "vue-material-design-icons": "1.5.1",
     "vuetify": "1.0.18"
   },
   "devDependencies": {
