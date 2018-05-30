@@ -22,14 +22,26 @@
         ></v-text-field>
        </v-layout>
       </v-flex>
-      <v-flex xs1>
-        <v-card color="pink darken-2">
-          <v-card-media :src="logo" alt="Logo" height="30px" width="100px">
-        </v-card-media>
-        </v-card>
+      <v-flex xs4 class="text-xs-center">
+        <img :src="logo">
+        <!-- <v-card color="pink darken-2">
+          <v-card-media :src="logo" alt="Logo" height="30px" style="width:100px">
+          </v-card-media>
+        </v-card> -->
       </v-flex>
-      <v-flex xs2>
-        <v-layout row justify-center>
+      <!-- <div>
+        <v-btn flat icon color="white" dark>
+            <v-icon dark>add</v-icon>
+          </v-btn>
+          <v-btn flat icon color="white" dark>
+            <v-icon dark>error</v-icon>
+          </v-btn>
+          <v-btn flat icon color="white" dark>
+            <v-icon dark>edit</v-icon>
+          </v-btn>
+      </div> -->
+      <v-flex xs4>
+        <v-layout row justify-end>
           <v-btn flat icon color="white" dark>
             <v-icon dark>add</v-icon>
           </v-btn>
