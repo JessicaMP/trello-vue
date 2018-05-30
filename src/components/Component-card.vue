@@ -1,15 +1,21 @@
 <template>
-	<ul>
-    <li class="title">
+	<v-card xs3 color="pink darken-4 white--text">
+    <v-card-title py-0 primary-title>
+      <v-layout row justify-space-between>
       <input type="text" class="edit" v-if='card === editing' v-model="card.name" @keyup.enter="doneEdit(card)" @blur="doneEdit(card)">
-      <label class="notView editing" @dblclick="editTodo(card)">{{ card.name }}</label>
-      <button @click="$emit('remove')">X</button>
-    </li>
-    <ul class="listBox">
-      <ComponentList class="list" v-for="(li, index) in newList" :key="index" :li="li" @removeLi="newList.splice(index, 1)"/>
-      <InputList v-model.trim="tarjet" placeholder="New list" @keyup.enter="addTarjet"/>
-    </ul>
-	</ul>
+      <label class="headline editing" @dblclick="editTodo(card)">{{ card.name }}</label>
+      <v-btn flat icon color="white" @click="$emit('remove')"><v-icon>close</v-icon></v-btn>
+      </v-layout>
+    </v-card-title>
+    <v-card color="transparent" class="listBox">
+      <v-container> 
+        <v-layout v-bind="binding">
+          <ComponentList class="list" v-for="(li, index) in newList" :key="index" :li="li" @removeLi="newList.splice(index, 1)"/>
+          <InputList v-model.trim="tarjet" placeholder="New list" @keyup.enter="addTarjet"/>
+        </v-layout>
+      </v-container> 
+    </v-card>
+	</v-card>
 </template>
 
 <script>
@@ -60,7 +66,17 @@ export default {
     editTodo(card) {
       this.editing = card
     }
-  }
+  },
+  computed: {
+      binding () {
+        const binding = {}
+
+        if (this.$vuetify.breakpoint.mdAndUp) binding.column = true
+
+        return binding
+      }
+    }
+
 };
 </script>
 

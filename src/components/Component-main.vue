@@ -1,7 +1,8 @@
 <template>
-  <v-layout row justify-center>
-    <ComponentCard d-inline-block v-for="(card, index) in cards" :key="index" :card="card" @remove="remove(index)"/>
-    <v-btn class="d-i-b" d-inline-block round color="pink lighten-4 white--text " @click="ok = !ok">Añadir una tarjeta</v-btn>
+  <v-layout row justify-center height="90px">
+    <!-- <v-flex height="90px"> -->
+    <ComponentCard  d-inline-block v-for="(card, index) in cards" :key="index" :card="card" @remove="remove(index)"/>
+    <v-btn d-inline-block round color="pink lighten-4 white--text" @click="ok = !ok">Añadir una tarjeta</v-btn>
     <v-card d-block v-show="ok">
       <input py-2 m-2type="text" @keyup.enter="addBox" v-model.trim="val" placeholder="Añadir una tarjeta">
       <v-card>
@@ -9,6 +10,7 @@
         <v-btn @click="ok = !ok" color="white"><v-icon color="pink darken-4">close</v-icon></v-btn>  
       </v-card>
     </v-card>
+    <!-- </v-flex> -->
   </v-layout>
 </template>
 
@@ -54,3 +56,10 @@ export default {
   }
 };
 </script>
+<style>
+input {
+  width: 90%;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+</style>

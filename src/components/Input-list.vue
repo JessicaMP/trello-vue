@@ -1,14 +1,15 @@
 <template>
-  <input type="text" class="input" :value="value" v-on="listeners">
+  <input solo-inverted type="text" class="input" :value="value" v-on="listeners">
 </template>
 <script>
 export default {
 	props: {
     value: {
       type: String,
-      default: '',
-		},
-	},
+      default: ''
+		}
+  },
+  last: '',
 	computed: {
     listeners () {
       return {
@@ -22,6 +23,7 @@ export default {
 <style lang="css" scoped>
 input {
   width: 90%;
-  padding: 0 0.5rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
 }
 </style>
