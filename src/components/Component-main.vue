@@ -1,6 +1,5 @@
 <template>
   <v-layout row justify-center height="90px">
-    <!-- <v-flex height="90px"> -->
     <ComponentCard  d-inline-block v-for="(card, index) in cards" :key="index" :card="card" @remove="remove(index)"/>
     <v-btn d-inline-block round color="pink lighten-4 white--text" @click="ok = !ok">Añadir una tarjeta</v-btn>
     <v-card d-block v-show="ok">
@@ -10,7 +9,6 @@
         <v-btn @click="ok = !ok" color="white"><v-icon color="pink darken-4">close</v-icon></v-btn>  
       </v-card>
     </v-card>
-    <!-- </v-flex> -->
   </v-layout>
 </template>
 
