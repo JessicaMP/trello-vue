@@ -97,6 +97,7 @@ ul {
 .card {
   margin: 5px;
   border-radius: 5px;
+  width: 250px;
 }
 
 .card__title {
@@ -107,7 +108,6 @@ ul {
   width: 100%;
   margin: 0.5rem 0;
   padding: 0;
-
 }
 
 .title {
