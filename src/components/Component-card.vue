@@ -1,21 +1,16 @@
-<template>
-	<v-card xs3 color="pink darken-4 white--text">
-    <v-card-title py-0 primary-title>
-      <v-layout row justify-space-between>
-      <input type="text" class="edit" v-if='card === editing' v-model="card.name" @keyup.enter="doneEdit(card)" @blur="doneEdit(card)">
-      <label class="headline editing" @dblclick="editTodo(card)">{{ card.name }}</label>
-      <v-btn flat icon color="white" @click="$emit('remove')"><v-icon>close</v-icon></v-btn>
-      </v-layout>
-    </v-card-title>
-    <v-card color="transparent" class="listBox">
-      <v-container> 
-        <v-layout v-bind="binding">
-          <ComponentList class="list" v-for="(li, index) in newList" :key="index" :li="li" @removeLi="newList.splice(index, 1)"/>
-          <InputList v-model.trim="tarjet" placeholder="New list" @keyup.enter="addTarjet"/>
-        </v-layout>
-      </v-container> 
-    </v-card>
-	</v-card>
+<template lang="pug">
+  v-card(xs3='', color='pink darken-4 white--text')
+    v-card-title(py-0='', primary-title='')
+      v-layout(row='', justify-space-between='')
+        input.edit(type='text', v-if='card === editing', v-model='card.name', @keyup.enter='doneEdit(card)', @blur='doneEdit(card)')
+        label.headline.editing(@dblclick='editTodo(card)') {{ card.name }}
+        v-btn(flat='', icon='', color='white', @click="$emit('remove')")
+          v-icon close
+    v-card.listBox(color='transparent')
+      v-container
+        v-layout(v-bind='binding')
+          ComponentList.list(v-for='(li, index) in newList', :key='index', :li='li', @removeli='newList.splice(index, 1)')
+            InputList(v-model.trim='tarjet', placeholder='New list', @keyup.enter='addTarjet')
 </template>
 
 <script>

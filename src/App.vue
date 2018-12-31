@@ -1,12 +1,9 @@
-<template>
-    <v-app class="pink">
-      <v-content>
-        <v-container fluid grid-list-xl>
-          <ComponentHeader/>
-          <ComponentMain/> 
-        </v-container>
-      </v-content> 
-    </v-app>
+<template lang='pug'>
+  v-app.pink
+    v-content
+      v-container(fluid='', grid-list-xl='').pa-0
+        ComponentHeader
+        //ComponentMain
 </template>
 
 <script>
@@ -17,7 +14,8 @@ export default {
   components: {
 		ComponentHeader,
     ComponentMain
-	}
+	},
+  layout: 'default'
 };
 </script>
 

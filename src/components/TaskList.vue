@@ -1,14 +1,9 @@
-<template>
-  <ul>
-    <li v-for="(task, index) in tasks" :key="index">
-        {{ task.title }}</li>
-    <input
-      type="text"
-      placeholder="Add a new task..."
-      v-model="title"
-      @keyup.enter="add()"
-    />
-  </ul>
+<template lang="pug">
+  ul
+    li(v-for='(task, index) in tasks', :key='index')
+      | {{ task.title }}
+    input(type='text', placeholder='Add a new task...', v-model='title', @keyup.enter='add()')
+
 </template>
 <script>
 export default {

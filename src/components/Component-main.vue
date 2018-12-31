@@ -1,15 +1,15 @@
-<template>
-  <v-layout row justify-center height="90px">
-    <ComponentCard  d-inline-block v-for="(card, index) in cards" :key="index" :card="card" @remove="remove(index)"/>
-    <v-btn d-inline-block round color="pink lighten-4 white--text" @click="ok = !ok">Añadir una tarjeta</v-btn>
-    <v-card d-block v-show="ok">
-      <input py-2 m-2type="text" @keyup.enter="addBox" v-model.trim="val" placeholder="Añadir una tarjeta">
-      <v-card>
-        <v-btn @click="addBox" color="pink darken-4"><v-icon color="white">save</v-icon></v-btn>
-        <v-btn @click="ok = !ok" color="white"><v-icon color="pink darken-4">close</v-icon></v-btn>  
-      </v-card>
-    </v-card>
-  </v-layout>
+<template lang="pug">
+  v-layout(row='', justify-center='', height='90px')
+    v-btn(d-inline-block='', round='', color='pink lighten-4 white--text', @click='addCard') Añadir una tarjeta
+    ComponentCard(d-inline-block='', v-for='(card, index) in cards', :key='index', :card='card', @remove='remove(index)')
+      v-card(d-block='', v-show='ok')
+        input(py-2='', m-2type='text', @keyup.enter='addBox', v-model.trim='val', placeholder='Añadir una tarjeta')
+      v-card
+        v-btn(@click='addBox', color='pink darken-4')
+          v-icon(color='white') save
+        v-btn(@click='ok = !ok', color='white')
+          v-icon(color='pink darken-4') close
+
 </template>
 
 <script>
@@ -50,6 +50,9 @@ export default {
     remove(index) {
       this.cards.splice(index, 1);
       console.log("remove");
+    },
+    addCard(val){
+      this.cards.push({name: ''})
     }
   }
 };

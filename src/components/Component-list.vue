@@ -1,12 +1,10 @@
-<template>
-  <v-card xs12 color="pink lighten-2 white--text">
-    <v-layout row justify-space-between>
-      <input type="text" class="edit" v-if='li === editing' v-model="li.name" @keyup.enter="doneEdit(li)" @blur="doneEdit(li)">
-      <label m-1 class="editing" @dblclick="editTodo(li)">{{ li.name }}</label>
-      <v-btn  flat icon color="white" @click="$emit('removeLi')"><v-icon>close</v-icon></v-btn>
-    </v-layout>
-  </v-card>
-  
+<template lang="pug">
+  v-card(xs12='', color='pink lighten-2 white--text')
+    v-layout(row='', justify-space-between='')
+      input.edit(type='text', v-if='li === editing', v-model='li.name', @keyup.enter='doneEdit(li)', @blur='doneEdit(li)')
+      label.editing(m-1='', @dblclick='editTodo(li)') {{ li.name }}
+      v-btn(flat='', icon='', color='white', @click="$emit('removeLi')")
+        v-icon close
 </template>
 
 <script>

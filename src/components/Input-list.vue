@@ -1,5 +1,5 @@
-<template>
-  <input solo-inverted type="text" class="input" :value="value" v-on="listeners">
+<template lang="pug">
+  input(solo-inverted type="text" class="input" :value="value" v-on="listeners")
 </template>
 <script>
 export default {
