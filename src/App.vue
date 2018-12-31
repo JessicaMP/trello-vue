@@ -3,7 +3,7 @@
     v-content
       v-container(fluid='', grid-list-xl='').pa-0
         ComponentHeader
-        //ComponentMain
+        ComponentMain
 </template>
 
 <script>

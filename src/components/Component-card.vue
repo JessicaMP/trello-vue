@@ -94,15 +94,31 @@ ul {
   width: 80%;
 }
 
+.card {
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.card__title {
+  font-size: 12px
+}
+
 .listBox {
   width: 100%;
   margin: 0.5rem 0;
   padding: 0;
+
 }
 
 .title {
   font-weight: bold;
   text-transform: uppercase;
+  font-size: 12px
+}
+
+
+.headline {
+  font-size: 12px !important;
 }
 </style>
 

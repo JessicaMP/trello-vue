@@ -1,6 +1,5 @@
 <template lang="pug">
-  v-layout(row='', justify-center='', height='90px')
-    v-btn(d-inline-block='', round='', color='pink lighten-4 white--text', @click='addCard') Añadir una tarjeta
+  v-layout(row='', justify-center='', height='90px').style--box
     ComponentCard(d-inline-block='', v-for='(card, index) in cards', :key='index', :card='card', @remove='remove(index)')
       v-card(d-block='', v-show='ok')
         input(py-2='', m-2type='text', @keyup.enter='addBox', v-model.trim='val', placeholder='Añadir una tarjeta')
@@ -9,7 +8,7 @@
           v-icon(color='white') save
         v-btn(@click='ok = !ok', color='white')
           v-icon(color='pink darken-4') close
-
+    v-btn(d-inline-block='', round='', color='pink lighten-4 white--text', @click='addCard') Añadir una tarjeta
 </template>
 
 <script>
@@ -52,7 +51,7 @@ export default {
       console.log("remove");
     },
     addCard(val){
-      this.cards.push({name: ''})
+      this.cards.push({name: 'Introduzca el título de la lista'})
     }
   }
 };
@@ -62,5 +61,9 @@ input {
   width: 90%;
   padding: 0.5rem;
   margin: 0.5rem;
+}
+.style--box {
+  display: flex !important;
+  flex-wrap: wrap !important;
 }
 </style>
